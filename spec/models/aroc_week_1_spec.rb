@@ -35,7 +35,9 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
     # Your solution should not contain the ID of the order anywhere
-    order_id = Order.order(amount: :asc).limit(1).first.id
+    order_id = Order.order(:amount).limit(1).pluck(:id)
+    order_id = Order.order(:amount).limit(1).first.id
+
     # ------------------------------------------------------------
 
     # Expectation
